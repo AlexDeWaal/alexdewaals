@@ -1,0 +1,82 @@
+body{
+    background-color: black;
+}
+
+.logo {
+    width: 100px;
+}
+
+.navbar-toggle {
+    border: none;
+}
+
+#Blur {
+    position: absolute;
+    margin-top: -30px;    
+    width: 100%;
+    background-position: center top;
+    -webkit-filter: blur(10px);
+    filter: blur(20px);
+    z-index: 0;
+}
+
+.container {
+    z-index: 999999;
+}
+
+button {
+  width: 60px;
+  height: 60px;    
+  margin-top: 90px;
+  float: left;
+  position: absolute;
+  background: none;
+  background-image: url(../img/fillPlay.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-style: none;
+}
+
+h1 {
+  color: white;
+  margin-top: 90px;
+  margin-left: 65px; 
+  position: absolute;   
+}
+
+h4 {
+  color: white;    
+  float: left;
+  margin-top: 130px;
+  margin-left: 65px;    
+  position: absolute;    
+}
+
+#Video {
+    margin-top: 165px;
+    z-index: 999999;
+    position: absolute;
+    height: 
+}
+
+.navbar{
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-collapse{
+        background: #142630;
+    }
+.navbar-collapse li:hover{
+        background: white;
+    }
+
+@media screen and (min-width: 768px) {
+.navbar-collapse{
+        background: transparent;
+    }
+
+.navbar-collapse li:hover{
+        background: transparent;
+    }
+}

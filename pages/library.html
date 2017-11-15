@@ -1,0 +1,581 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../css/librarypage.css">
+    <link rel="stylesheet" href="../bootstrap/3.3.6/css/bootstrap.css">
+    <script src="../js/jquery/1.12.0/jquery.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/homepage.js"></script>
+    <script src="../js/movies.js"></script>
+    <script src="../js/watchlist.js"></script>
+    <script src="../js/libraryjquery.js"></script>
+    <script src="../bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Library | Binge</title>
+</head>
+<body>
+    <div class="container-fluid">
+    <header>
+        <nav id="topnav" class="navbar navbar-inverse navbar-fixed-top">
+            <div id="layout" class="container">
+                <div id="navbar-header" class="navbar-header">
+                    <a href="homepage.html" class="navbar-brand">
+                        <img src="../img/logos/logo_white.svg" alt="logo" class="logo">
+                    </a>
+                    <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-items">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar-items" class="navbar-right navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="homepage.html">Home</a>
+                        </li>
+                        <li class="active"><a href="library.html">Library</a></li>
+                        <li><a href="watchlist.html">Watchlist</a></li>
+                    </ul>
+                </div>
+            </div> 
+        </nav>
+    </header>
+       <div class="container">
+           <ul class="nav nav-pills nav-justified">
+               <li id="filters"><a data-toggle="pill" onclick="reload()"><img src="../img/filter.svg"></a></li>
+               
+               <li class="dropdown">
+                   <select id="dropdown-menu">
+                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Genre
+                           <span class="caret"></span>
+                       </a>
+                       <option><a data-toggle="pill" href="#home">Genre</a></option>
+                       <option value="ALL"><a data-toggle="pill" href="#home">All</a></option>
+                       <option value="ACT"><a data-toggle="pill" href="#home">Action</a></option>
+                       <option value="ADV"><a data-toggle="pill" href="#home">Adventure</a></option>
+                       <option value="COM"><a data-toggle="pill" href="#home">Comedy</a></option>
+                       <option value="DRA"><a data-toggle="pill" href="#home">Drama</a></option>
+                       <option value="FAN"><a data-toggle="pill" href="#home">Fantasy</a></option>
+                       <option value="THR"><a data-toggle="pill" href="#home">Thriller</a></option>       
+                       <option value="HOR"><a data-toggle="pill" href="#home">Horror</a></option>
+                       <option value="SCI"><a data-toggle="pill" href="#home">Sci-fi</a></option>
+                   </select>
+               </li> <!-- Genre -->
+               
+               <li class="dropdown">
+                   <select id="dropdown-menu-two">
+                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">IMdB Rating
+                           <span class="caret"></span>
+                       </a>
+                       <ul class="dropdown-menu">
+                           <option value="ALL"> <li><a data-toggle="pill" href="#home">IMdB Rating</a></li></option>
+                           <option value="AGT"><li><a data-toggle="pill" href="#home">More than 8</a></li></option>
+                           <option value="THREE"><li><a data-toggle="pill" href="#home">3 to 7</a></li></option> 
+                           <option value="TWO"><li><a data-toggle="pill" href="#home">Less than 3</a></li></option>
+                       </ul>
+                   </select>
+               </li> <!-- IMDb Rating -->
+               
+               <li class="dropdown">
+                   <select id="dropdown-menu-three">
+                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Stars
+                           <span class="caret"></span>
+                       </a>
+                       <ul class="dropdown-menu">
+                           <option value="ALL"><li><a data-toggle="pill" href="#home">Stars</a></li></option>
+                           <option value="FIVEST"><li><a data-toggle="pill" href="#home">5</a></li></option>
+                           <option value="FOURST"><li><a data-toggle="pill" href="#home">4</a></li></option>
+                           <option value="THREEST"><li><a data-toggle="pill" href="#home">3</a></li> </option>  
+                           <option value="TWOST"><li><a data-toggle="pill" href="#home">2</a></li></option>
+                           <option value="ONEST"><li><a data-toggle="pill" href="#home">1</a></li></option>
+                       </ul>
+                   </select>
+               </li> <!-- Stars -->
+    
+               <li class="dropdown">
+                   <select id="dropdown-menu-four">
+                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Year
+                           <span class="caret"></span>
+                       </a>
+                       <ul class="dropdown-menu">
+                           <option value="ALL"><li><a data-toggle="pill" href="#home">Year</a></li></option>
+                           <option value="TWOTEN"><li><a data-toggle="pill" href="#home">2010's</a></li></option>
+                           <option value="TWOTHOUS"><li><a data-toggle="pill" href="#home">2000's</a></li></option><option value="NINETIES"><li><a data-toggle="pill" href="#home">1990's</a></li></option>
+                           <option value="EIGHTIES"><li><a data-toggle="pill" href="#home">1980's</a></li></option>
+                           <option value="SEVENTIES"><li><a data-toggle="pill" href="#home">1970's</a></li></option>
+                           <option value="BEFORE"><li><a data-toggle="pill" href="#home">earlier than 1970</a></li></option>
+                       </ul>
+                   </select>
+               </li> <!-- Year -->
+           </ul> <!-- Nav Pills -->
+           
+           <div class="tab-content col-xs-6 col-sm-12">
+               <div id="home" class="tab-pane fade in active">
+                   <div class="row">
+                       <div class="movie-container">
+                           
+                           <!-- CARD ONE -->
+               <div class="movie-card"  data-genre="comedy" data-imdb="eight" data-stars="five" data-year="ten">
+                
+                     <div class="image Poster1">
+                         <h2 class="name 1Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 1Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="1Imdb">IMDb Rating:</p>
+                          <p class="1Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm btnFirst">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm btnFirst">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Futurama Movie Card -->
+                
+        <!-- CARD TWO -->
+               <div class="movie-card" data-genre="comedy" data-imdb="eight" data-stars="four" data-year="two">
+                     <div class="image Poster2">
+                         <h2 class="name 2Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 2Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="2Imdb">IMDb Rating:</p>
+                          <p class="2Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm btnTwo">Watch Later</button>
+                              <button id="playNow2" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm btnTwo">Watch Later</button>
+                              <button id="playNow2" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Simpsons Movie Card -->
+                
+            <!-- CARD THREE -->
+                 <div class="movie-card" data-genre="comedy" data-imdb="eight" data-stars="three" data-year="nine">
+                     <div class="image Poster3">
+                         <h2 class="name 3Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 3Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="3Imdb">IMDb Rating:</p>
+                          <p class="3Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm btnThree">Watch Later</button>
+                              <button id="playNow3" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm btnThree">Watch Later</button>
+                              <button id="playNow3" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Brooklyn 99 Movie Card -->
+            
+         <!-- CARD FOUR -->
+                 <div class="movie-card" data-genre="comedy" data-imdb="three" data-stars="two" data-year="eight">
+                     <div class="image Poster4">
+                         <h2 class="name 4Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 4Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="4Imdb">IMDb Rating:</p>
+                          <p class="4Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm btnFour">Watch Later</button>
+                              <button id="playNow4" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm btnFour">Watch Later</button>
+                              <button id="playNow4" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Kevin can wait Movie Card --> 
+                
+            <!-- CARD FIVE -->
+                 <div class="movie-card" data-genre="comedy" data-imdb="three" data-stars="one" data-year="seven">
+                     <div class="image Poster5">
+                         <h2 class="name 5Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 5Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="5Imdb">IMDb Rating:</p>
+                          <p class="5Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Middle Movie Card -->
+                 
+            <!-- CARD SIX -->
+                 <div class="movie-card" data-genre="adventure" data-imdb="eight" data-stars="five" data-year="before">
+                     <div class="image Poster6">
+                         <h2 class="name 6Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 6Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="6Imdb">IMDb Rating:</p>
+                          <p class="6Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- RickMorty Movie Card -->
+                
+            <!-- CARD SEVEN -->
+                 <div class="movie-card" data-genre="drama" data-imdb="three" data-stars="five" data-year="">
+                     <div class="image Poster7">
+                         <h2 class="name 7Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 7Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="7Imdb">IMDb Rating:</p>
+                          <p class="7Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Timeless Movie Card -->
+            
+                <!-- CARD EIGHT -->
+                 <div class="movie-card" data-genre="drama" data-imdb="three" data-stars="five" data-year="">
+                     <div class="image Poster8">
+                         <h2 class="name 8Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 8Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="8Imdb">IMDb Rating:</p>
+                          <p class="8Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Code Black Movie Card -->
+                 
+        <!-- CARD NINE -->
+                 <div class="movie-card" data-genre="horror" data-imdb="eight" data-stars="five" data-year="">
+                     <div class="image Poster10">
+                         <h2 class="name 10Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 10Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="10Imdb">IMDb Rating:</p>
+                          <p class="10Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- AHS Movie Card -->
+                 
+            <!-- CARD TEN -->
+                 <div class="movie-card" data-genre="drama" data-imdb="three" data-stars="five" data-year="">
+                     <div class="image Poster11">
+                         <h2 class="name 11Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 11Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="11Imdb">IMDb Rating:</p>
+                          <p class="11Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Riverdale Movie Card -->
+                 
+            <!-- CARD ELEVEN -->
+                 <div class="movie-card" data-genre="thriller" data-imdb="eight" data-stars="five" data-year="">
+                     <div class="image Poster12">
+                         <h2 class="name 12Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 12Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="12Imdb">IMDb Rating:</p>
+                          <p class="12Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- American Gods Movie Card -->
+                 
+            <!-- CARD 12 -->
+                 <div class="movie-card" data-genre="scifi" data-imdb="three" data-stars="five" data-year="">
+                     <div class="image Poster13">
+                         <h2 class="name 13Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 13Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="13Imdb">IMDb Rating:</p>
+                          <p class="13Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- WonderWoman Movie Card -->
+                 
+            <!-- CARD 13 -->
+                 <div class="movie-card" data-genre="action" data-imdb="eight" data-stars="five" data-year="">
+                     <div class="image Poster14">
+                         <h2 class="name 14Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 14Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="14Imdb">IMDb Rating:</p>
+                          <p class="14Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Deadpool Movie Card -->
+                 
+            <!-- CARD 14 -->
+                 <div class="movie-card" data-genre="thriller" data-imdb="three" data-stars="five" data-year="">
+                     <div class="image Poster15">
+                         <h2 class="name 15Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 15Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="15Imdb">IMDb Rating:</p>
+                          <p class="15Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- AtomicBlonde Movie Card -->
+                 
+            <!-- CARD 15 -->
+                 <div class="movie-card" data-genre="fantasy" data-imdb="eight" data-stars="one" data-year="">
+                     <div class="image Poster16">
+                         <h2 class="name 16Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 16Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="16Imdb">IMDb Rating:</p>
+                          <p class="16Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- AdventureTime Movie Card -->
+     
+            <!-- CARD 16 -->
+                 <div class="movie-card" data-genre="thriller" data-imdb="three" data-stars="two" data-year="">
+                     <div class="image Poster17">
+                         <h2 class="name 17Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 17Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="17Imdb">IMDb Rating:</p>
+                          <p class="17Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Split Movie Card -->
+                
+            <!-- CARD 17 -->
+                 <div class="movie-card" data-genre="thriller" data-imdb="three" data-stars="three" data-year="">
+                     <div class="image Poster18">
+                         <h2 class="name 18Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 18Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="18Imdb">IMDb Rating:</p>
+                          <p class="18Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Lucy Movie Card -->
+                 
+            <!-- CARD 18 -->
+                 <div class="movie-card" data-genre="thriller" data-imdb="eight" data-stars="four" data-year="">
+                     <div class="image Poster9">
+                         <h2 class="name 9Name">Name</h2>
+                     </div>
+                     <div class="overlay visible-md visible-lg">
+                         <div class="plot">
+                          <b>Description:</b>
+                          <p class="plotText 9Plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore, consequuntur. Aperiam aspernatur vero, sit quasi omnis aut minima excepturi autem a debitis ullam dolore culpa voluptas labore commodi perspiciatis.</p>
+                          <p class="9Imdb">IMDb Rating:</p>
+                          <p class="9Genre">Genre:</p>
+                          <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>
+                         </div>
+                     </div> <!-- overlay visible-md visible-lg -->
+                     <div class="actionBar visible-xs visible-sm">
+                      <div id="bottomRow" class="form-group">
+                              <button id="watchLater" type="button" class="btn btn-link btn-sm">Watch Later</button>
+                              <button id="playNow" type="button" class="btn btn-link btn-sm">"</button>
+                          </div>     
+                     </div>
+                 </div> <!-- Dexter Movie Card -->
+                 
+                  
+                       </div> <!-- Movie Container -->
+                   </div> <!-- Row -->
+               </div> <!-- Home -->
+               
+               <div id="more-info" class="form-group">
+                   <button type="button" class="btn btn-link legal hidden-xs">Legal</button>
+                       BINGE © 2017
+                   <button type="button" class="btn btn-link contact hidden-xs">Contact Us</button>
+               </div> <!-- More Info -->
+           </div> <!-- Tab Content -->
+        </div> <!-- Container -->
+    </div> <!-- Container Fluid -->
+</body>
+</html>
